@@ -6,6 +6,8 @@ const app = express();
 
 const index = "<a href='/sobre'>Sobre</a><a href='/info'>Info</a>";
 
+const home = "Você está na página Home<br><a href='/'>Voltar</a>";
+
 const sobre = "Você está na página Sobre<br><a href='/'>Voltar</a>";
 
 const info = "Você está na página Info<br><a href='/'>Voltar</a>";
