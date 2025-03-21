@@ -13,6 +13,11 @@ db.serialize(() => {
   );
 });
 
+app.use("/static", express.static(__dirname + "/static"));
+
+//Configurar EJS como o motor de visualização
+app.set("view engine", "ejs");
+
 //Cria conexão com o banco de dados
 
 const index =
@@ -28,15 +33,23 @@ const login = "Você está na página Login<br><a href='/'>Voltar</a>";
 Na ARROW FUNCTION, o primeiro são os dados do servidor (REQUISITION - 'req')
 o segundo são os dados que serão enviados ao cliente (RESULT - 'res') */
 app.get("/", (req, res) => {
-  res.send(index);
+  //Rota raiz do meu servidor, acesse o browser com o endereço http://localhost:8000/
+  /*res.send(index);*/
+  res.render("index");
 });
 
 app.get("/sobre", (req, res) => {
+  //Rota raiz do meu servidor, acesse o browser com o endereço http://localhost:8000/
   res.send(sobre);
 });
 
 app.get("/login", (req, res) => {
-  res.send(login);
+  // res.send(login);
+  res.render("login");
+});
+
+app.post("/login", (req, res) => {
+  res.send("Login ainda não implementado.");
 });
 
 app.get("/cadastro", (req, res) => {
